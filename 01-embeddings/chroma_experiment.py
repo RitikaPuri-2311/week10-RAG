@@ -17,7 +17,10 @@ try:
 except:
     pass
 
-collection = client.create_collection("docs")
+collection = client.create_collection(
+    "docs",
+    metadata={"hnsw:space": "cosine"}
+)
 
 # Add all 20 sentences
 collection.add(
